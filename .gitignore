@@ -6,4 +6,9 @@ __pycache__/
 dist/
 build/
 .vscode/
-.DS_Storex
+.DS_Store
+.pytest_cache/
+.mypy_cache/
+coverage/
+*.log
+.idea/
