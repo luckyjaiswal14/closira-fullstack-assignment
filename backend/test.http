@@ -1,0 +1,55 @@
+### Create a new enquiry (Matches SOP)
+POST http://localhost:8000/enquiry
+Content-Type: application/json
+
+{
+  "channel": "whatsapp",
+  "customer_name": "Alice Smith",
+  "message": "I would like to know the price of your service."
+}
+
+###
+
+### Create a new enquiry (Escalates - no SOP match)
+POST http://localhost:8000/enquiry
+Content-Type: application/json
+
+{
+  "channel": "email",
+  "customer_name": "Bob Jones",
+  "message": "I want to talk to a human right now about my account."
+}
+
+###
+
+### Schedule a follow-up
+# Replace {id} with the ID returned from the creation step
+POST http://localhost:8000/enquiry/enq_12345678/follow-up
+Content-Type: application/json
+
+{
+  "delay_minutes": 60,
+  "message_template": "Just checking in to see if you received our pricing."
+}
+
+###
+
+### Escalate an enquiry manually
+# Replace {id} with the ID returned from the creation step
+POST http://localhost:8000/enquiry/enq_12345678/escalate
+Content-Type: application/json
+
+{
+  "reason": "Customer is extremely upset and requested a manager."
+}
+
+###
+
+### Get enquiry history
+# Replace {id} with the ID returned from the creation step
+GET http://localhost:8000/enquiry/enq_12345678/history
+
+###
+
+### Health Check
+GET http://localhost:8000/health

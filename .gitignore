@@ -1,0 +1,9 @@
+node_modules/
+__pycache__/
+*.pyc
+.env
+.expo/
+dist/
+build/
+.vscode/
+.DS_Storex
